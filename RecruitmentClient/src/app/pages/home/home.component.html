@@ -1,0 +1,424 @@
+<section>
+  <div class="block no-padding">
+    <div class="container fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-featured-sec">
+            <!-- <ul class="main-slider-sec text-arrows">
+                            <li class="slideHome"><img src="assets/images/resource/mslider3.jpg" alt="" /></li>
+                            <li class="slideHome"><img src="assets/images/resource/mslider2.jpg" alt="" /></li>
+                            <li class="slideHome"><img src="assets/images/resource/mslider1.jpg" alt="" /></li>
+                        </ul> -->
+            <div class="new-slide">
+              <!-- <img src="http://placehold.it/1920x800" alt="" /> -->
+            </div>
+            <div class="job-search-sec">
+              <div class="job-search">
+                <h3>The Easiest Way to Get Your New Job</h3>
+                <span>Find Jobs, Employment & Career Opportunities</span>
+                <form name="form1">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                      <div class="job-field">
+                        <input
+                          class="chosen-city"
+                          type="text"
+                          placeholder="Tìm kiếm theo kỹ năng, chức vụ, công ty"
+                          name="keyWord"
+                        />
+                        <i class="la la-keyboard-o"></i>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4">
+                      <div>
+                        <ng-select
+                          name="city"
+                          placeholder="Tất cả địa điểm"
+                          [loading]="cityLoading"
+                          [items]="cities"
+                          bindLabel="name"
+                          bindValue="cityId"
+                          [(ngModel)]="selectedCity"
+                        >
+                        </ng-select>
+
+                        <!-- <i class="la la-map-marker"></i> -->
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4">
+                      <div>
+                        <ng-select
+                        name="profession"
+                          placeholder="Tất cả ngành nghề"
+                          [loading]="professionLoading"
+                          [items]="professions"
+                          bindLabel="name"
+                          bindValue="professionId"
+                          [(ngModel)]="selectedProfession"
+                        >
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-12">
+                      <button type="submit" id="btnsearchjob">
+                        <i class="la la-search"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="or-browser">
+                    <!-- <span>Tìm công việc bằng cách </span>Category -->
+                    <a href="#" title="">.Net</a>
+                    <a href="#" title="">Java</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="scroll-to">
+              <a href="#scroll-here" title=""
+                ><i class="la la-arrow-down"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="scroll-here">
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="heading">
+            <h2>Danh Mục Phổ Biến</h2>
+            <!-- <span
+              >@JobsApproval việc làm đã duyệt - @JobsAddToday thêm vào ngày hôm
+              nay.</span -->
+            <!-- > -->
+          </div>
+          <!-- Heading -->
+
+          <div class="cat-sec">
+            <div class="row no-gape">
+              <div class="col-lg-3 col-md-3 col-sm-6" *ngFor="let career of careers.slice(0, 4)">
+                <div class="p-category">
+                  <a href="" title="{{career.name}}" class="border-bottom">
+                    <i class="{{career.icon}}"></i>
+                    <span>{{career.name}}</span>
+                    <p>{{career.countJob}} công việc</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="browse-all-cat">
+            <a href=" title=">Tất cả các danh mục</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block double-gap-top double-gap-bottom">
+    <!-- url(http://placehold.it/1920x1000) -->
+    <div
+      data-velocity="-.1"
+      style=" background:  repeat scroll 50% 422.28px transparent; "
+      class="parallax scrolly-invisible layer color" ></div>
+    <!-- PARALLAX BACKGROUND IMAGE -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="simple-text-block">
+            <h3>Make a Difference with Your Online Resume!</h3>
+            <span>Your resume in minutes with JobHunt resume assistant is ready!</span>
+            <a title="" href="#" >Đăng ký ngay</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Đăng ký nhận tin</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="title-job titlereceive">
+            Vui lòng xác nhận các thông tin chi tiết sau để nhận bản tin điện tử
+          </p>
+          <div class="inforeceive abovereceive">
+            <div class="row">
+              <div class="col-lg-4 nameleft">
+                Địa chỉ email<span class="red">(*):</span>
+              </div>
+              <div class="col-lg-8" style="text-align: left">
+                <!-- @Html.TextBox("emailreceive", "", new { @class = "form-control input-sm confirm-phone" }) -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 nameleft">
+                Họ tên<span class="red">(*):</span>
+              </div>
+              <div class="col-lg-8" style="text-align: left">
+                <!-- @Html.TextBox("namereceive", "", new { @class = "form-control input-sm confirm-phone" }) -->
+              </div>
+            </div>
+          </div>
+          <div class="inforeceive">
+            <p class="titlecare">Chọn nội dung bạn quan tâm</p>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="checkbox"
+                  value="1"
+                  id="chk_1"
+                  name="checkboxreceive"
+                />
+                <label for="chk_1" class="labelforcheckbox"
+                  >Tin tuyển dụng</label
+                >
+              </div>
+              <div class="col-6">
+                <input
+                  type="checkbox"
+                  value="2"
+                  id="chk_2"
+                  name="checkboxreceive"
+                />
+                <label for="chk_2" class="labelforcheckbox"
+                  >Tư vấn/Bài viết</label
+                >
+              </div>
+            </div>
+            <div class="row receivedropdown">
+              <div class="col-lg-4" style="text-align: right">Ngành nghề:</div>
+              <div class="col-lg-8" style="text-align: left">
+                <!-- @Html.DropDownList("idprofessionreceive", (IEnumerable<SelectListItem>)ViewBag.ListProfesstions, "Tất cả danh mục", new { @class = "chosen-city" }) -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary btn-success"
+            id="registerreceive"
+          >
+            Đăng ký
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            id="closereceive"
+          >
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="heading">
+            <h2>Featured Jobs</h2>
+            <span>Leading Employers already using job and talent.</span>
+          </div><!-- Heading -->
+          <!-- <div class="tab-sec"> -->
+            <!-- <ul class="nav nav-tabs">
+              <li><a class="current" data-tab="fjobs">Công việc nổi bật</a></li>
+              <li><a data-tab="rjobs">Công việc gần đây</a></li>
+            </ul> -->
+
+            <!-- <div id="fjobs" class="tab-content current"> -->
+              <div class="row">
+                <div class="job-listings-sec">
+                  <div class="job-listing" *ngFor="let recruitJobInfo of recruitJobInfos">
+                    <div class="job-title-sec">
+                      <!-- http://placehold.it/98x51 -->
+                      <div class="c-logo"> <img src="" alt="" /> </div>
+                      <h3><a href="#" title="">{{recruitJobInfo.title}}</a></h3>
+                      <span>{{recruitJobInfo.recruit ? recruitJobInfo.recruit.companyName : "Đăng bởi Admin"}}</span>
+                    </div>
+                    <span class="job-lctn"><i class="la la-map-marker"></i>{{recruitJobInfo.workPlace}}</span>
+                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                    <span class="job-is ft">{{recruitJobInfo.workType?.name}}</span>
+                  </div><!-- Job -->
+                </div>
+                <!-- <div class="col-lg-6" *ngFor="let recruitJob of recruitJobs"> -->
+                  <!-- <div class="job-listing wtabs"> -->
+                      <!-- If RecruitDTO != null -->
+                      <!-- <div class="job-title-sec" *ngIf="recruitJob.recruit">
+                        <div class="c-logo"> <a href=""><img src="{{recruitJob.recruit.logo ?? 'http://placehold.it/178x40'}}" alt="" class="logo-company"></a> </div>
+                        <h3 class=""><a href="" title="" class="titlejob">{{recruitJob.title}}</a></h3>
+                        <span><a href="">{{recruitJob.recruit.companyName}}</a></span>
+                        <div class="job-lctn"><i class="la la-map-marker"></i>{{recruitJob.workPlace}}</div>
+                    </div>
+                    <div class="job-title-sec" *ngIf="!recruitJob.recruit">
+                      <div class="c-logo"> <img src="http://placehold.it/178x40" alt="" class="logo-company"> </div>
+                      <h3 class=""><a href="" title="" class="titlejob">{{recruitJob.title}}</a></h3>
+                      <span>Bài đăng bởi admin</span>
+                      <div class="job-lctn"><i class="la la-map-marker"></i>{{recruitJob.workPlace}}</div>
+                   </div> -->
+
+       
+                  <!-- </div>  -->
+                  <!-- Job -->
+                <!-- </div> -->
+              </div>
+            <!-- </div> -->
+
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block">
+    <div
+      data-velocity="-.1"
+      style="
+        background: url(assets/images/resource/parallax2.jpg) repeat scroll 50%
+          422.28px transparent;
+      "
+      class="parallax scrolly-invisible layer color light"
+    ></div>
+    <!-- PARALLAX BACKGROUND IMAGE -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="heading">
+            <h2 style="color: white">Doanh nghiệp tuyển dụng hàng đầu</h2>
+            <span style="color: white"
+              >Chúng tôi đã giúp tuyển dụng những ứng viên xuất sắc trong thời gian qua.</span
+            >
+          </div>
+          <!-- Heading -->
+          <div class="comp-sec">
+            <div class="company-img">
+              <!-- <a href="#" title=""
+                ><img src="http://placehold.it/180x80" alt=""
+              /></a> -->
+            </div>
+            <!-- Client  -->
+            <div class="company-img">
+              <!-- <a href="#" title=""
+                ><img src="http://placehold.it/180x80" alt=""
+              /></a> -->
+            </div>
+            <!-- Client  -->
+            <div class="company-img">
+              <!-- <a href="#" title=""
+                ><img src="http://placehold.it/180x80" alt=""
+              /></a> -->
+            </div>
+            <!-- Client  -->
+            <div class="company-img">
+              <!-- <a href="#" title=""
+                ><img src="http://placehold.it/180x80" alt=""
+              /></a> -->
+            </div>
+            <!-- Client  -->
+            <div class="company-img">
+              <!-- <a href="#" title=""
+                ><img src="http://placehold.it/180x80" alt=""
+              /></a> -->
+            </div>
+            <!-- Client  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="block">
+    <div
+      data-velocity="-.1"
+      style="
+        background: url(assets/images/resource/parallax1.jpg) 50% -69.7px repeat
+          scroll transparent;
+      "
+      class="parallax scrolly-invisible layer color"
+    ></div>
+    <!-- PARALLAX BACKGROUND IMAGE -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="heading light">
+            <h2>Thống Kê Trang Web</h2>
+            <!-- <span>
+              Ở đây chúng tôi liệt kê số liệu thống kê trang web của chúng tôi
+              và có bao nhiêu người chúng tôi đã giúp tìm việc <br />
+              và các công ty đã tìm thấy ứng cử viên. Đó là một số liệu thống kê
+              khá tuyệt vời!
+            </span> -->
+          </div>
+          <!-- Heading -->
+          <div class="stats-sec">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="stats">
+                  <span>{{recruitJobNumber}}</span>
+                  <h5>Việc làm đã đăng</h5>
+                </div>
+              </div>
+              <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="stats">
+                  <span>@JobsApproval</span>
+                  <h5>Đã phê duyệt</h5>
+                </div>
+              </div> -->
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="stats">
+                  <span>{{recruitNumber}}</span>
+                  <h5>Công ty</h5>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="stats">
+                  <span>{{candidateNumber}}</span>
+                  <h5>Ứng viên</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

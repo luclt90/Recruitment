@@ -1,0 +1,221 @@
+<div *ngIf="loggedIn()">
+  <!-- Ứng viên -->
+  <div *ngIf="isCandidate()">
+    <div class="my-profiles-sec">
+      <span >
+        <img src="assets/images/avatar-default.png" alt="" style="width: 50px; height: 50px" class="avatarlinkclass" /> Name 
+        <i class="la la-bars"></i >
+        </span>
+    </div>
+    <div class="profile-sidebar">
+      <span class="close-profile"><i class="la la-close"></i></span>
+      <div class="can-detail-s">
+        <div class="cst">
+          <img
+            src="assets/images/avatar-default.png"
+            alt="Ảnh đại diện"
+            class="avatarlinkclass" />
+        </div>
+        <h3>Name</h3>
+        <p>Email</p>
+        <p>Thành viên từ ("dd/MM/yyyy")</p>
+        <p><i class="la la-map-marker"></i>Address</p>
+      </div>
+      <div class="tree_widget-sec">
+        <ul>
+          <li class="inner-child">
+            <a title=""><i class="la la-briefcase"></i>Hồ sơ cá nhân</a>
+            <ul>
+              <li [routerLink]="['ung-vien']"><a href="" title="">Quản lý hồ sơ</a></li>
+              <li><a href="" title="">CV - Hồ sơ đính kèm</a></li>
+            </ul>
+          </li>
+          <li class="inner-child">
+            <a href="#" title=""
+              ><i class="la la-paper-plane"></i>Việc làm của tôi</a
+            >
+            <ul>
+              <li [routerLink]="['appliedJobs']"><a href="" title="">Việc đã lưu</a></li>
+              <li><a href="" title="">Việc đã ứng tuyển</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" title=""><i class="la la-flash"></i>Đổi mật khẩu</a>
+          </li>
+          <li class="inner-child">
+            <a href="#" title=""><i class="la la-user"></i>Tài khoản</a>
+            <ul>
+              <li><a href="" title="">Chỉnh sửa tài khoản</a></li>
+            </ul>
+          </li>
+          <li (click)="logout()">
+            <a href="" title="Đăng xuất khỏi hệ thống" ><i class="la la-unlink"></i> Đăng xuất</a >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Menu profile -->
+  </div>
+  <!-- Người tuyển dụng -->
+    <div *ngIf="isRecruiter()" class="btns-profiles-sec">
+      <span><img src="assets/images/avatar-default.png" alt="Ảnh đại diện" style="width: 50px; height: 50px"> .Name <i class="la la-angle-down"></i></span>
+      <ul style="z-index: 9">
+          <li [routerLink]="['nha-tuyen-dung']"><a href="" title=""><i class="la la-file-text"></i> Hồ sơ công ty</a></li>
+          <li><a href="" title=""><i class="la la-briefcase"></i> Quản lý công việc</a></li>
+          <li><a href="" title=""><i class="la la-leaf"></i> Đăng tin tuyển dụng</a></li>
+          <li><a href="" title=""><i class="la la-key"></i> Đổi mật khẩu</a></li>
+          <li (click)="logout()">
+            <a href="" title="Đăng xuất khỏi hệ thống" class="logout"><i class="la la-history"></i> Đăng xuất</a>
+          </li>
+      </ul>
+  </div>
+</div>
+
+<div class="btn-extars" *ngIf="!loggedIn()">
+  <ul class="account-btns">
+    <li class="signup-popup" (click)="show(false)">
+      <a title="Đăng ký tài khoản"><i class="la la-key"></i> Đăng ký</a>
+    </li>
+    <li class="signin-popup" (click)="show()">
+      <a title="Đăng nhập hệ thống"
+        ><i class="la la-external-link-square"></i> Đăng nhập</a
+      >
+    </li>
+  </ul>
+</div>
+<!-- Đăng ký,  Đăng nhập-->
+
+<div  [style.display]="showSignIn ? 'block' : 'none'" class="account-popup-area signin-popup-box" >
+  <div class="account-popup">
+    <span class="close-popup" (click)="hide()" ><i class="la la-close"></i ></span>
+    <h3>Đăng nhập</h3>
+    <div class="select-user">
+      <span id="candidatelogin" class="logintype">Ứng Viên</span>
+      <span id="employerlogin" class="logintype">Nhà Tuyển Dụng</span>
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <div class="cfield">
+        <input
+          type="text"
+          placeholder="Email"
+          name="Email"
+          id="EmailLogin"
+          [(ngModel)]="modelLogin.email" />
+        <i class="la la-user"></i>
+      </div>
+      <div class="cfield">
+        <input
+          type="password"
+          placeholder="********"
+          name="Password"
+          id="PassLogin"
+          [(ngModel)]="modelLogin.password" />
+        <i class="la la-key"></i>
+      </div>
+      <p class="remember-label">
+        <input type="checkbox" name="RememberMe" id="RememberMe" /><label
+          for="RememberMe"
+          >Nhớ tài khoản</label >
+      </p>
+      <a href="#" title="">Quyên mật khẩu?</a>
+      <button type="submit" id="Login">Đăng nhập</button>
+
+      <div class="extra-login">
+        <span>Hoặc</span>
+        <div class="login-social">
+          <a class="fb-login" href="#" title=""
+            ><i class="fa fa-facebook"></i ></a>
+          <a class="tw-login" href="#" title=""
+            ><i class="fa fa-twitter"></i ></a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Đăng nhập popup -->
+
+<div [style.display]="showSignUp ? 'block' : 'none'" class="account-popup-area signup-popup-box"
+>
+  <div class="account-popup">
+    <span class="close-popup" (click)="hide(false)" ><i class="la la-close"></i ></span>
+    <h3>Đăng Ký</h3>
+    <div class="select-user">
+      <span id="candidateregister" class="registertype">Ứng Viên</span>
+      <span id="employerregister" class="registertype">Nhà Tuyển Dụng</span>
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="cfield">
+        <input
+          type="text"
+          placeholder="Tên đăng ký"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('userName')?.errors &&
+              registerForm.get('userName')?.touched
+          }"
+          class="form-control"
+          minlength="4"
+          maxlength="8"
+          formControlName="userName" />
+        <i class="la la-user"></i>
+        <div class="invalid-feedback"></div>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('userName')?.hasError('required') &&
+            registerForm.get('userName')?.touched " >
+          Tên đăng ký không được để trống
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('userName')?.hasError('minlength') &&
+            registerForm.get('userName')?.touched " >
+          Tên đăng ký có độ dài tối thiểu là 4 ký tự
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('userName')?.hasError('maxlength') &&
+            registerForm.get('userName')?.touched " >
+          Tên đăng ký có đội dài tối đa là 30 ký tự
+        </div>
+      </div>
+
+      <div class="cfield">
+        <input
+          type="password"
+          placeholder="Mật khẩu"
+          minlength="4"
+          maxlength="8"
+          formControlName="password" />
+        <i class="la la-key"></i>
+      </div>
+      <div class="cfield">
+        <input type="password" placeholder="Nhập lại mật khẩu" />
+        <i class="la la-key"></i>
+      </div>
+      <div class="cfield">
+        <input type="text" placeholder="Email" email formControlName="email" />
+        <i class="la la-envelope-o"></i>
+      </div>
+      <div class="cfield">
+        <input
+          type="text"
+          placeholder="Số điện thoại"
+          formControlName="phone" />
+        <i class="la la-phone"></i>
+      </div>
+      <button type="submit">Đăng Ký</button>
+    </form>
+    <div class="extra-login">
+      <span>Or</span>
+      <div class="login-social">
+        <a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+        <a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Đăng ký popup -->

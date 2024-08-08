@@ -1,0 +1,80 @@
+<section class="overlape">
+  <div class="block no-padding">
+    <div
+      data-velocity="-.1"
+      style="
+        background: url(assets/images/resource/mslider1.jpg) 100% 100% no-repeat
+          scroll transparent;
+      "
+      class="parallax scrolly-invisible no-parallax"
+      id="bg-recruit"
+    ></div>
+    <!-- PARALLAX BACKGROUND IMAGE -->
+    <div class="container fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="inner-header">
+            <h3>Xin chào {{ authService.currentUser?.userName }}</h3>
+          </div>
+          <div class="edit-coverimage" id="bg-upcover">
+            <a title="Ảnh bìa công ty">
+              <div class="edit-avatar__btn up-coverimage">
+                <img
+                  src="assets/images/camera.png"
+                  class="display-inline-block"
+                />
+                <p class="display-inline-block text-update-cover-img">
+                  Cập nhật
+                </p>
+              </div>
+              <input
+                type="file"
+                name=""
+                value=""
+                class="btnupcover"
+                id="updatecover"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row no-gape">
+      <aside class="col-lg-3 column border-right">
+        <!-- Menu left -->
+        <div class="widget">
+          <div class="tree_widget-sec">
+            <ul>
+                  <li>
+                    <a routerLink="ho-so-cong-ty" title="Hồ sơ công ty" ><i class="la la-file-text"></i>Hồ sơ công ty</a >
+                  </li>
+                  <li>
+                    <a routerLink="danh-sach-cong-viec" title="Danh sách công việc" ><i class="la la-briefcase"></i>Danh sách công việc</a >
+                  </li>
+                  <li>
+                    <a routerLink="danh-sach-ung-vien" title="Danh sách ứng viên" ><i class="la la-paper-plane"></i>Danh sách ứng viên</a >
+                  </li>
+                  <li>
+                    <a routerLink="dang-tin" title="Đăng tin tuyển dụng"><i class="la la-file-text"></i>Đăng tin tuyển dụng</a>
+                  </li>
+                  <li>
+                    <a href="" title="Đổi mật khẩu" ><i class="la la-lock"></i>Đổi mật khẩu</a >
+                  </li>
+                  <li>
+                    <a title="Đăng xuất khỏi hệ thống" ><i class="la la-unlink"></i> Đăng xuất</a >
+                  </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="col-lg-9 column">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

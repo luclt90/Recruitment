@@ -1,0 +1,10 @@
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container {
+    height: 50px;
+    border: none;
+    font-size: 13px;
+    color: #888888;
+}
+
+/* :host ::ng-deep .ng-input>input {
+    cursor: pointer !important;
+} */

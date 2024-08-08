@@ -1,0 +1,258 @@
+<div class="padding-left">
+  <div class="profile-title" id="mp">
+    <h3>Hồ sơ công ty</h3>
+    <div class="upload-img-bar">
+      <span class="round"
+        ><img
+          src="assets/images/avatar-default.png"
+          alt=""
+          id="avatarlink"
+          style="width: 156px; height: 156px"
+          class="avatarlinkclass"
+        /><i>x</i></span
+      >
+      <div class="upload-info">
+        <a title="Tải lên avatar" id="chooseAvatar">Tải lên</a>
+        <input
+          type="file"
+          name=""
+          value=""
+          class="disabled"
+          id="updateavatar"
+        />
+        <span
+          >Kích thước tệp tối đa là 2MB, Kích thước tối thiểu: 270x210 Và các
+          tệp phù hợp là .jpg & .png & .jpeg</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-form-edit">
+    <form #updateInfoForm="ngForm" (ngSubmit)="updateInfo()">
+      <div class="row">
+        <div class="col-lg-6">
+          <span class="pf-title">Tên công ty</span>
+          <div class="pf-field">
+            <input
+              type="text"
+              placeholder="Tên công ty"
+              name="companyName"
+              [(ngModel)]="recruit.companyName"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="pf-title">Logo công ty</span>
+          <div class="pf-field">
+            <div class="logo-company display-inline">
+              <span title="logo công ty" class="spanlogo">
+                <img src="@Model.RILogo" alt="Logo công ty" id="logocompany" />
+              </span>
+            </div>
+            <div class="upload display-inline">
+              <div class="main-up-logo">
+                <a title="Tải lên logo" class="titlelogo"
+                  ><i class="la la-upload"></i>Tải lên</a
+                >
+                <input type="file" name="name" value="" id="updatelogo" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <span class="pf-title">Thời gian thành lập</span>
+          <div class="pf-field">
+            <input
+              type="year"
+              placeholder="1990"
+              name="foundedYear"
+              [(ngModel)]="recruit.foundedYear"
+            />
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <span class="pf-title">Số lượng người trong công ty</span>
+          <div class="pf-field">
+            <ng-select
+              name="companySize"
+              class="custom"
+              placeholder="-- Số lượng nhân viên --"
+              [loading]="companySizeLoading"
+              [items]="companySizes"
+              bindLabel="show"
+              bindValue="companySizeId"
+              [(ngModel)]="recruit.companySizeId"
+            >
+            </ng-select>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="pf-title">Ngành nghề</span>
+          <div class="pf-field">
+            <ng-select
+              name="profession"
+              class="custom"
+              placeholder="Tất cả ngành nghề"
+              [loading]="professionLoading"
+              [items]="professions"
+              bindLabel="name"
+              bindValue="professionId"
+              [(ngModel)]="recruit.professionId"
+            >
+            </ng-select>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <span class="pf-title">Giới thiệu</span>
+          <div class="pf-field">
+            <textarea
+              class="form-control"
+              name="about"
+              [(ngModel)]="recruit.about"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <button type="submit" id="updaterecruit">Cập nhật</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="social-edit"  id="sn">
+                        <h3>Mạng xã hội</h3>
+                        <form #socialForm="ngForm">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <span class="pf-title">Facebook</span>
+                                    <div class="pf-field">
+                                        <input type="text" placeholder="www.facebook.com/TeraPlaner" [(ngModel)]="recruit.facebook"/>
+                                        <i class="fa fa-facebook"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="pf-title">Twitter</span>
+                                    <div class="pf-field">
+                                        <input type="text" placeholder="www.twitter.com/TeraPlaner" [(ngModel)]="recruit.google" />
+                                        <i class="fa fa-twitter"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="pf-title">Google</span>
+                                    <div class="pf-field">
+                                        <input type="text" placeholder="www.google-plus.com/TeraPlaner" [(ngModel)]="recruit.twitter"/>
+                                        <i class="la la-google"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="pf-title">Linkedin</span>
+                                    <div class="pf-field">
+                                        <input type="text" placeholder="www.Linkedin.com/TeraPlaner" [(ngModel)]="recruit.linkedin"/>
+                                        <i class="la la-linkedin"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
+  <div class="contact-edit profile-form-edit" id="ci">
+    <h3>Thông tin liên hệ</h3>
+    <form #updateContactForm="ngForm" (ngSubmit)="updateContact()">
+      <div class="row">
+        <div class="col-lg-4">
+          <span class="pf-title">Số điện thoại</span>
+          <div class="pf-field">
+            <input
+              type="text"
+              id="phone"
+              class="form-control"
+              placeholder="0933117456"
+              name="phone"
+              [(ngModel)]="recruit.phone"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <span class="pf-title">Email</span>
+          <div class="pf-field">
+            <input
+              type="text"
+              placeholder="demo@devviec.com"
+              name="email"
+              [(ngModel)]="recruit.email"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <span class="pf-title">Website</span>
+          <div class="pf-field">
+            <input
+              type="text"
+              placeholder="www.devviec.com"
+              name="website"
+              [(ngModel)]="recruit.website"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="pf-title">Tỉnh/Thành phố</span>
+          <div class="pf-field">
+            <ng-select
+              name="city"
+              class="custom"
+              placeholder="-- Chọn Tỉnh/Thành phố --"
+              [loading]="cityLoading"
+              [items]="cities"
+              bindLabel="name"
+              bindValue="cityId"
+              [(ngModel)]="recruit.cityId"
+              (ngModelChange)="selectedCityChanged($event)"
+            >
+            </ng-select>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <span class="pf-title">Quận/Huyện</span>
+          <ng-select
+            name="district"
+            placeholder="-- Chọn Quận/Huyện --"
+            [loading]="districtLoading"
+            [items]="districts"
+            bindLabel="name"
+            bindValue="districtId"
+            [(ngModel)]="recruit.districtId"
+            (ngModelChange)="selectedDistrictChanged($event)"
+          >
+          </ng-select>
+        </div>
+        <div class="col-lg-6">
+          <span class="pf-title">Xã/Phường</span>
+          <ng-select
+            name="ward"
+            class="custom"
+            placeholder="-- Chọn Phường/Xã --"
+            [loading]="wardLoading"
+            [items]="wards"
+            bindLabel="name"
+            bindValue="wardId"
+            [(ngModel)]="recruit.wardId"
+          >
+          </ng-select>
+        </div>
+        <div class="col-lg-6">
+          <span class="pf-title">Địa chỉ</span>
+          <div class="pf-field">
+            <input
+              type="text"
+              placeholder=""
+              name="address"
+              [(ngModel)]="recruit.address"
+            />
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <button type="submit">Cập nhật</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
